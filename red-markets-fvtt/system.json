@@ -3,6 +3,8 @@
   "title": "Red Markets - Profit System",
   "description": "A personal-use Foundry VTT system implementation for Red Markets style economic horror campaigns, with sheet-inspired layout, Profit System Black/Red d10 rolls, damage, gear charges, rations, Will, bank, crew and negotiation tools. No copyrighted book text or artwork is included.",
   "version": "0.3.1",
+"manifest": "https://raw.githubusercontent.com/gamermoviegeek-bit/red-markets-foundry/main/red-markets-fvtt/system.json",
+"download": "https://github.com/gamermoviegeek-bit/red-markets-foundry/releases/download/v0.3.1/red-markets-fvtt.zip",
   "authors": [
     {
       "name": "OpenAI / Dave personal build"
