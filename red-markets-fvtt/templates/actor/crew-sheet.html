@@ -1,0 +1,32 @@
+<form class="{{cssClass}} rm-sheet" autocomplete="off">
+  <header class="rm-logo-header"><h1>RED MARKETS</h1><span class="rm-page">CREW / NEGOTIATION</span></header>
+  <nav class="sheet-tabs tabs rm-tabs" data-group="primary"><a class="item" data-tab="job">Job</a><a class="item" data-tab="negotiation">Negotiation</a><a class="item" data-tab="notes">Notes</a></nav>
+  <section class="sheet-body">
+    <div class="tab" data-group="primary" data-tab="job">
+      <section class="rm-panel">
+        <div class="rm-fieldline"><label>Crew Name</label><input name="name" value="{{actor.name}}"/></div>
+        <div class="rm-fieldline"><label>Enclave</label><input name="system.enclave" value="{{system.enclave}}"/></div>
+        <div class="rm-fieldline"><label>Slogan</label><input name="system.slogan" value="{{system.slogan}}"/></div>
+        <div class="rm-row"><label>Break Point <input type="number" name="system.breakPoint" value="{{system.breakPoint}}"/></label><label>Members <input name="system.members" value="{{system.members}}"/></label></div>
+      </section>
+      <section class="rm-panel"><h2>Current Job</h2><div class="rm-row"><label>Client <input name="system.job.client" value="{{system.job.client}}"/></label><label>Pay <input type="number" name="system.job.pay" value="{{system.job.pay}}"/></label><label>Expenses <input type="number" name="system.job.expenses" value="{{system.job.expenses}}"/></label><label>Legs <input type="number" name="system.job.legs" value="{{system.job.legs}}"/></label></div><label>Contract <textarea name="system.job.contract">{{system.job.contract}}</textarea></label><label>Score <textarea name="system.job.score">{{system.job.score}}</textarea></label><label>Travel <textarea name="system.job.travel">{{system.job.travel}}</textarea></label></section>
+    </div>
+    <div class="tab" data-group="primary" data-tab="negotiation">
+      <section class="rm-panel">
+        <h2>Negotiation Tracker</h2>
+        <div class="rm-upkeep-grid">
+          <label>Client Start <input type="number" name="system.negotiation.clientStart" value="{{system.negotiation.clientStart}}"/></label>
+          <label>Provider Start <input type="number" name="system.negotiation.providerStart" value="{{system.negotiation.providerStart}}"/></label>
+          <label>Black Die / Price <input type="number" name="system.negotiation.black" value="{{system.negotiation.black}}"/></label>
+          <label>Red Die / Price <input type="number" name="system.negotiation.red" value="{{system.negotiation.red}}"/></label>
+          <label>Sway <input type="number" name="system.negotiation.sway" value="{{system.negotiation.sway}}"/></label>
+          <label>Rounds <input type="number" name="system.negotiation.rounds" value="{{system.negotiation.rounds}}"/></label>
+          <label>Roll Bonus <input type="number" name="system.negotiation.bonus" value="{{system.negotiation.bonus}}"/></label>
+        </div>
+        <div class="rm-row"><button type="button" class="crew-roll" data-skill="Leadership">Roll Leadership</button><button type="button" class="crew-roll" data-skill="Persuasion">Roll Persuasion</button><button type="button" class="crew-roll" data-skill="Sensitivity">Roll Sensitivity</button><button type="button" class="crew-roll" data-skill="Deception">Roll Deception</button><button type="button" class="crew-roll" data-skill="Intimidation">Roll Intimidation</button></div>
+      </section>
+      <section class="rm-panel"><h2>Spots & Plays</h2><label>Client Spots <textarea name="system.negotiation.clientSpots">{{system.negotiation.clientSpots}}</textarea></label><label>Crew Spots <textarea name="system.negotiation.crewSpots">{{system.negotiation.crewSpots}}</textarea></label><label>Price Notes <textarea name="system.negotiation.priceNotes">{{system.negotiation.priceNotes}}</textarea></label></section>
+    </div>
+    <div class="tab" data-group="primary" data-tab="notes"><section class="rm-panel"><h2>Notes</h2><textarea class="big-notes" name="system.notes">{{system.notes}}</textarea></section></div>
+  </section>
+</form>

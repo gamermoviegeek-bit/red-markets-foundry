@@ -1,0 +1,6 @@
+Put the red-markets-fvtt folder into this path C:\Users\whateveryournameis\AppData\Local\FoundryVTT\Data\systems
+
+Put the red-markets-dsn-dice into this path C:\Users\whateveryournameis\AppData\Local\FoundryVTT\Data\modules
+
+Then activate the Dice so Nice system and it should give you a red D10 and a black D10
+

@@ -1,0 +1,484 @@
+{
+  "Actor": {
+    "types": [
+      "taker",
+      "crew",
+      "marketforce"
+    ],
+    "templates": {
+      "common": {
+        "notes": "",
+        "description": ""
+      }
+    },
+    "taker": {
+      "templates": [
+        "common"
+      ],
+      "crew": "",
+      "weakSpot": "",
+      "softSpot": "",
+      "toughSpot": "",
+      "bounty": 0,
+      "breakPoint": 0,
+      "projectedEarnings": 0,
+      "retirement": {
+        "milestones": "",
+        "savings": 0
+      },
+      "upkeep": {
+        "sustenance": 0,
+        "survival": 1,
+        "rent": 1,
+        "dependents": 0,
+        "maintenance": 0,
+        "equipment": 0,
+        "purchase": 0,
+        "professionalDevelopment": 0,
+        "incidentals": 0,
+        "health": 0,
+        "humanity": 0,
+        "favors": 0
+      },
+      "combat": {
+        "tactic": true,
+        "twitch": true,
+        "freebie": true,
+        "lastDamage": {
+          "value": 0,
+          "location": "",
+          "type": "kill"
+        },
+        "defaultDamageType": "kill"
+      },
+      "essentials": {
+        "backpack": {
+          "upkeep": 1,
+          "static": true,
+          "effect": "Taker can carry STR in Haul and personal gear",
+          "qualities": "Essential Static"
+        },
+        "rations": {
+          "upkeep": 1,
+          "effect": "Rations can buy exertion rolls; extra spends add +1",
+          "qualities": "Essential Addictive Charged"
+        }
+      },
+      "damage": {
+        "rightLeg": {
+          "label": "Right Leg",
+          "range": "1-2",
+          "max": 5,
+          "stun": 0,
+          "kill": 0,
+          "status": ""
+        },
+        "leftLeg": {
+          "label": "Left Leg",
+          "range": "3-4",
+          "max": 5,
+          "stun": 0,
+          "kill": 0,
+          "status": ""
+        },
+        "rightArm": {
+          "label": "Right Arm",
+          "range": "5",
+          "max": 5,
+          "stun": 0,
+          "kill": 0,
+          "status": ""
+        },
+        "leftArm": {
+          "label": "Left Arm",
+          "range": "6",
+          "max": 5,
+          "stun": 0,
+          "kill": 0,
+          "status": ""
+        },
+        "torso": {
+          "label": "Torso",
+          "range": "7-9",
+          "max": 10,
+          "stun": 0,
+          "kill": 0,
+          "status": ""
+        },
+        "head": {
+          "label": "Head",
+          "range": "10",
+          "max": 5,
+          "stun": 0,
+          "kill": 0,
+          "status": ""
+        }
+      },
+      "resources": {
+        "will": {
+          "value": 1,
+          "max": 1
+        },
+        "haul": {
+          "value": 0,
+          "max": 1
+        },
+        "rations": {
+          "value": 10,
+          "max": 10
+        },
+        "humanity": {
+          "detachment": 0,
+          "stress": 0,
+          "trauma": 0
+        },
+        "threats": {
+          "crack": false,
+          "crumble": false,
+          "break": false
+        }
+      },
+      "potentials": {
+        "str": {
+          "label": "STR",
+          "value": 1
+        },
+        "spd": {
+          "label": "SPD",
+          "value": 1
+        },
+        "adp": {
+          "label": "ADP",
+          "value": 1
+        },
+        "int": {
+          "label": "INT",
+          "value": 1
+        },
+        "cha": {
+          "label": "CHA",
+          "value": 1
+        },
+        "wil": {
+          "label": "WIL",
+          "value": 1
+        }
+      },
+      "skills": {
+        "unarmed": {
+          "label": "Unarmed",
+          "potential": "str",
+          "value": 0,
+          "spec": "",
+          "buyRoll": "rations",
+          "oneAndDone": false
+        },
+        "melee": {
+          "label": "Melee",
+          "potential": "str",
+          "value": 0,
+          "spec": "",
+          "buyRoll": "rations",
+          "oneAndDone": false
+        },
+        "resistance": {
+          "label": "Resistance",
+          "potential": "str",
+          "value": 0,
+          "spec": "",
+          "buyRoll": "rations",
+          "oneAndDone": false
+        },
+        "shoot": {
+          "label": "Shoot",
+          "potential": "spd",
+          "value": 0,
+          "spec": "",
+          "buyRoll": "rations",
+          "oneAndDone": false
+        },
+        "stealth": {
+          "label": "Stealth",
+          "potential": "spd",
+          "value": 0,
+          "spec": "",
+          "buyRoll": "rations",
+          "oneAndDone": false
+        },
+        "athletics": {
+          "label": "Athletics",
+          "potential": "spd",
+          "value": 0,
+          "spec": "",
+          "buyRoll": "rations",
+          "oneAndDone": false
+        },
+        "awareness": {
+          "label": "Awareness",
+          "potential": "adp",
+          "value": 0,
+          "spec": "",
+          "buyRoll": "none",
+          "oneAndDone": true
+        },
+        "selfControl": {
+          "label": "Self-Control",
+          "potential": "adp",
+          "value": 0,
+          "spec": "",
+          "buyRoll": "none",
+          "oneAndDone": true
+        },
+        "scavenging": {
+          "label": "Scavenging",
+          "potential": "adp",
+          "value": 0,
+          "spec": "",
+          "buyRoll": "none",
+          "oneAndDone": true
+        },
+        "drive": {
+          "label": "Drive",
+          "potential": "adp",
+          "value": 0,
+          "spec": "",
+          "buyRoll": "none",
+          "oneAndDone": true
+        },
+        "criminality": {
+          "label": "Criminality",
+          "potential": "adp",
+          "value": 0,
+          "spec": "",
+          "buyRoll": "none",
+          "oneAndDone": true
+        },
+        "foresight": {
+          "label": "Foresight",
+          "potential": "int",
+          "value": 0,
+          "spec": "",
+          "buyRoll": "none",
+          "oneAndDone": true
+        },
+        "research": {
+          "label": "Research",
+          "potential": "int",
+          "value": 0,
+          "spec": "",
+          "buyRoll": "none",
+          "oneAndDone": true
+        },
+        "mechanics": {
+          "label": "Mechanics",
+          "potential": "int",
+          "value": 0,
+          "spec": "",
+          "buyRoll": "none",
+          "oneAndDone": true
+        },
+        "firstAid": {
+          "label": "First Aid",
+          "potential": "int",
+          "value": 0,
+          "spec": "",
+          "buyRoll": "none",
+          "oneAndDone": true
+        },
+        "profession": {
+          "label": "Profession",
+          "potential": "int",
+          "value": 0,
+          "spec": "",
+          "buyRoll": "none",
+          "oneAndDone": true
+        },
+        "networking": {
+          "label": "Networking",
+          "potential": "cha",
+          "value": 0,
+          "spec": "",
+          "buyRoll": "none",
+          "oneAndDone": true
+        },
+        "persuasion": {
+          "label": "Persuasion",
+          "potential": "cha",
+          "value": 0,
+          "spec": "",
+          "buyRoll": "none",
+          "oneAndDone": true
+        },
+        "sensitivity": {
+          "label": "Sensitivity",
+          "potential": "cha",
+          "value": 0,
+          "spec": "",
+          "buyRoll": "none",
+          "oneAndDone": true
+        },
+        "deception": {
+          "label": "Deception",
+          "potential": "cha",
+          "value": 0,
+          "spec": "",
+          "buyRoll": "none",
+          "oneAndDone": true
+        },
+        "intimidation": {
+          "label": "Intimidation",
+          "potential": "cha",
+          "value": 0,
+          "spec": "",
+          "buyRoll": "none",
+          "oneAndDone": true
+        },
+        "leadership": {
+          "label": "Leadership",
+          "potential": "cha",
+          "value": 0,
+          "spec": "",
+          "buyRoll": "none",
+          "oneAndDone": true
+        }
+      }
+    },
+    "crew": {
+      "templates": [
+        "common"
+      ],
+      "enclave": "",
+      "slogan": "",
+      "members": "",
+      "breakPoint": 0,
+      "job": {
+        "client": "",
+        "contract": "",
+        "score": "",
+        "travel": "",
+        "pay": 0,
+        "expenses": 0,
+        "legs": 1
+      },
+      "negotiation": {
+        "clientStart": 0,
+        "providerStart": 0,
+        "black": 0,
+        "red": 0,
+        "sway": 0,
+        "rounds": 0,
+        "bonus": 0,
+        "clientSpots": "",
+        "crewSpots": "",
+        "priceNotes": ""
+      },
+      "notes": ""
+    },
+    "marketforce": {
+      "templates": [
+        "common"
+      ],
+      "threat": 1,
+      "damage": "1d10",
+      "special": "",
+      "resources": {
+        "health": {
+          "value": 1,
+          "max": 1
+        }
+      }
+    }
+  },
+  "Item": {
+    "types": [
+      "gear",
+      "weapon",
+      "armor",
+      "vehicle",
+      "dependent",
+      "reference",
+      "service"
+    ],
+    "templates": {
+      "thing": {
+        "description": "",
+        "bounty": 0,
+        "upkeep": 0,
+        "haul": 0,
+        "qualities": "",
+        "effect": "",
+        "upgrades": ""
+      },
+      "charged": {
+        "charges": {
+          "value": 10,
+          "max": 10
+        },
+        "chargeType": "charged",
+        "skill": "",
+        "bonusPerExtraCharge": true
+      }
+    },
+    "gear": {
+      "templates": [
+        "thing",
+        "charged"
+      ],
+      "static": false,
+      "rollNote": ""
+    },
+    "weapon": {
+      "templates": [
+        "thing",
+        "charged"
+      ],
+      "skill": "shoot",
+      "damage": "1d10",
+      "range": "",
+      "location": "",
+      "equipped": false,
+      "rollNote": "",
+      "damageType": "kill"
+    },
+    "armor": {
+      "templates": [
+        "thing"
+      ],
+      "armor": 1,
+      "location": "",
+      "equipped": false
+    },
+    "vehicle": {
+      "templates": [
+        "thing",
+        "charged"
+      ],
+      "speed": "",
+      "armor": 0,
+      "rollNote": ""
+    },
+    "dependent": {
+      "templates": [
+        "thing"
+      ],
+      "relationship": "",
+      "status": "Needy",
+      "humanityHeal": 1
+    },
+    "reference": {
+      "templates": [
+        "thing"
+      ],
+      "field": "",
+      "favorOwed": 0,
+      "status": "Available"
+    },
+    "service": {
+      "templates": [
+        "thing"
+      ],
+      "provider": "",
+      "availability": ""
+    }
+  }
+}

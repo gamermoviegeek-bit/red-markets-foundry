@@ -1,0 +1,31 @@
+{
+  "id": "red-markets-dsn-dice",
+  "title": "Red Markets Dice for Dice So Nice",
+  "description": "Adds Red Markets themed black and red d10 colour sets for Dice So Nice, designed for the Profit System's Black and Red dice.",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "12",
+    "verified": "13"
+  },
+  "authors": [
+    {
+      "name": "David Moore / ChatGPT"
+    }
+  ],
+  "relationships": {
+    "requires": [
+      {
+        "id": "dice-so-nice",
+        "type": "module",
+        "manifest": "https://gitlab.com/riccisi/foundryvtt-dice-so-nice/-/raw/master/module/module.json"
+      }
+    ],
+    "systems": []
+  },
+  "esmodules": [
+    "scripts/red-markets-dsn-dice.js"
+  ],
+  "styles": [
+    "styles/red-markets-dsn-dice.css"
+  ]
+}

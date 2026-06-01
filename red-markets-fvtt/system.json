@@ -1,0 +1,46 @@
+{
+  "id": "red-markets-fvtt",
+  "title": "Red Markets - Profit System",
+  "description": "A personal-use Foundry VTT system implementation for Red Markets style economic horror campaigns, with sheet-inspired layout, Profit System Black/Red d10 rolls, damage, gear charges, rations, Will, bank, crew and negotiation tools. No copyrighted book text or artwork is included.",
+  "version": "0.3.1",
+  "authors": [
+    {
+      "name": "OpenAI / Dave personal build"
+    }
+  ],
+  "compatibility": {
+    "minimum": "12",
+    "verified": "13"
+  },
+  "esmodules": [
+    "scripts/system.js"
+  ],
+  "styles": [
+    "styles/red-markets.css"
+  ],
+  "template": "template.json",
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "documentTypes": {
+    "Actor": {
+      "taker": {},
+      "crew": {},
+      "marketforce": {}
+    },
+    "Item": {
+      "gear": {},
+      "weapon": {},
+      "armor": {},
+      "vehicle": {},
+      "dependent": {},
+      "reference": {},
+      "service": {}
+    }
+  },
+  "socket": true
+}

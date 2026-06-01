@@ -1,0 +1,208 @@
+<form class="{{cssClass}} rm-sheet rm-character" autocomplete="off">
+  <header class="rm-logo-header">
+    <div class="rm-sparkline"></div>
+    <h1>RED MARKETS</h1>
+    <span class="rm-page">TAKER SHEET</span>
+  </header>
+
+  <nav class="sheet-tabs tabs rm-tabs" data-group="primary">
+    <a class="item" data-tab="main">Sheet</a>
+    <a class="item" data-tab="combat">Combat</a>
+    <a class="item" data-tab="gear">Gear</a>
+    <a class="item" data-tab="bank">Bank</a>
+    <a class="item" data-tab="people">People</a>
+    <a class="item" data-tab="notes">Notes</a>
+  </nav>
+
+  <section class="sheet-body">
+    <div class="tab" data-group="primary" data-tab="main">
+      <div class="rm-sheet-grid">
+        <section class="rm-panel rm-identity">
+          <div class="rm-fieldline"><label>Taker</label><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></div>
+          <div class="rm-fieldline"><label>Crew</label><input name="system.crew" type="text" value="{{system.crew}}"/></div>
+          <div class="rm-fieldarea"><label>Weak Spot</label><textarea name="system.weakSpot">{{system.weakSpot}}</textarea></div>
+          <div class="rm-fieldarea"><label>Soft Spot</label><textarea name="system.softSpot">{{system.softSpot}}</textarea></div>
+          <div class="rm-fieldarea"><label>Tough Spot</label><textarea name="system.toughSpot">{{system.toughSpot}}</textarea></div>
+        </section>
+
+        <section class="rm-panel rm-people-preview">
+          <h2>Dependents</h2>
+          <ol class="rm-lined-list">
+            {{#each dependents as |item|}}
+              <li class="item" data-item-id="{{item.id}}"><a class="item-edit">{{item.name}}</a><span>{{item.system.status}}</span></li>
+            {{/each}}
+            <li><button type="button" class="item-create" data-type="dependent">+ Dependent</button></li>
+          </ol>
+          <h2>References</h2>
+          <ol class="rm-lined-list">
+            {{#each references as |item|}}
+              <li class="item" data-item-id="{{item.id}}"><a class="item-edit">{{item.name}}</a><span>{{item.system.field}}</span></li>
+            {{/each}}
+            <li><button type="button" class="item-create" data-type="reference">+ Reference</button></li>
+          </ol>
+          <h2>Threats</h2>
+          <div class="rm-threat-table">
+            <label>Detachment <input type="number" name="system.resources.humanity.detachment" value="{{system.resources.humanity.detachment}}"/></label>
+            <label>Stress <input type="number" name="system.resources.humanity.stress" value="{{system.resources.humanity.stress}}"/></label>
+            <label>Trauma <input type="number" name="system.resources.humanity.trauma" value="{{system.resources.humanity.trauma}}"/></label>
+            <label class="rm-vertical"><input name="system.resources.threats.crack" type="checkbox" {{checked system.resources.threats.crack}}/> Crack</label>
+            <label class="rm-vertical"><input name="system.resources.threats.crumble" type="checkbox" {{checked system.resources.threats.crumble}}/> Crumble</label>
+            <label class="rm-vertical"><input name="system.resources.threats.break" type="checkbox" {{checked system.resources.threats.break}}/> Break</label>
+          </div>
+        </section>
+
+        <section class="rm-panel rm-skills-panel">
+          <div class="rm-skills-header"><h2>Potential</h2><h2>Skills</h2></div>
+          {{#each skillGroups as |group gkey|}}
+            <div class="rm-potential-skill-block">
+              <div class="rm-potential-cell">
+                <label>{{group.short}} <input name="system.potentials.{{gkey}}.value" type="number" min="0" value="{{group.potential.value}}"/></label>
+                {{#if (eq gkey "str")}}<small>Haul</small>{{/if}}
+                {{#if (eq gkey "adp")}}<small>Refresh</small>{{/if}}
+              </div>
+              <div class="rm-skill-lines">
+                {{#each group.skills as |pair|}}
+                  <div class="rm-skill-line {{#if (eq (lookup pair 0) "profession")}}profession{{/if}}">
+                    <button type="button" class="skill-roll glow" data-skill="{{lookup pair 0}}" title="Roll {{lookup (lookup pair 1) "label"}}">{{lookup (lookup pair 1) "label"}}</button>
+                    <input class="rm-num" name="system.skills.{{lookup pair 0}}.value" type="number" min="0" value="{{lookup (lookup pair 1) "value"}}"/>
+                    <input class="rm-spec" name="system.skills.{{lookup pair 0}}.spec" type="text" value="{{lookup (lookup pair 1) "spec"}}" placeholder="specialisation"/>
+                    <small class="rm-skill-tag">{{skillTag (lookup pair 1)}}</small>
+                  </div>
+                {{/each}}
+              </div>
+            </div>
+          {{/each}}
+          <div class="rm-will-row">
+            <label>WIL <input name="system.potentials.wil.value" type="number" min="0" value="{{system.potentials.wil.value}}"/></label>
+            <label>Will <input name="system.resources.will.value" type="number" min="0" value="{{system.resources.will.value}}"/> / <input name="system.resources.will.max" type="number" min="0" value="{{system.resources.will.max}}"/></label>
+            <button type="button" class="will-spend">Spend</button><button type="button" class="will-refresh">Refresh</button>
+          </div>
+        </section>
+
+        <section class="rm-panel rm-resource-panel">
+          <h2>Essentials</h2>
+          <div class="rm-essential-card">
+            <h3>Backpack</h3>
+            <div class="rm-row"><label>Upkeep <input type="number" name="system.essentials.backpack.upkeep" value="{{system.essentials.backpack.upkeep}}"/></label><label>Static <input type="checkbox" name="system.essentials.backpack.static" {{checked system.essentials.backpack.static}}/></label></div>
+            <label>Effect <input name="system.essentials.backpack.effect" value="{{system.essentials.backpack.effect}}"/></label>
+            <label>Qualities <input name="system.essentials.backpack.qualities" value="{{system.essentials.backpack.qualities}}"/></label>
+          </div>
+          <div class="rm-essential-card">
+            <h3>Rations {{#if gassed}}<span class="rm-gassed">GASSED</span>{{/if}}</h3>
+            <div class="rm-row"><label>Upkeep <input type="number" name="system.essentials.rations.upkeep" value="{{system.essentials.rations.upkeep}}"/></label><label>Charges <input type="number" name="system.resources.rations.value" value="{{system.resources.rations.value}}"/> / <input type="number" name="system.resources.rations.max" value="{{system.resources.rations.max}}"/></label><button type="button" class="ration-use">Use</button><button type="button" class="ration-refresh">Refresh</button></div>
+            <label>Effect <input name="system.essentials.rations.effect" value="{{system.essentials.rations.effect}}"/></label>
+            <label>Qualities <input name="system.essentials.rations.qualities" value="{{system.essentials.rations.qualities}}"/></label>
+          </div>
+          <div class="rm-row rm-compact-numbers">
+            <label>Haul <input name="system.resources.haul.value" type="number" value="{{system.resources.haul.value}}"/> / <input name="system.resources.haul.max" type="number" value="{{system.resources.haul.max}}"/></label>
+            <label>Bounty <input name="system.bounty" type="number" value="{{system.bounty}}"/></label>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div class="tab" data-group="primary" data-tab="combat">
+      <div class="rm-two-col">
+        <section class="rm-panel">
+          <h2>Hit Locations & Damage</h2>
+          <div class="rm-body-map">
+            {{#each damageLocations as |loc key|}}
+              <div class="rm-hit-location {{key}}">
+                <h3>{{loc.label}} <span>{{loc.range}}</span></h3>
+                <div class="rm-damage-row"><b>Stun</b>{{{boxes loc.max loc.stun ""}}}</div>
+                <div class="rm-damage-row"><b>Kill</b>{{{boxes loc.max loc.kill "kill"}}}</div>
+                <div class="rm-row"><button type="button" class="damage-add" data-location="{{key}}" data-kind="stun">+Stun</button><button type="button" class="damage-add" data-location="{{key}}" data-kind="kill">+Kill</button><button type="button" class="damage-clear" data-location="{{key}}">Clear</button></div>
+                <input name="system.damage.{{key}}.status" value="{{loc.status}}" placeholder="status"/>
+              </div>
+            {{/each}}
+          </div>
+        </section>
+        <section class="rm-panel">
+          <h2>Action Economy</h2>
+          <p class="rm-small">Combat rolls use the same Black d10 vs Red d10 check. Natural Black is damage; natural Red is hit location.</p>
+          <div class="rm-action-economy">
+            <label><input type="checkbox" name="system.combat.tactic" {{checked system.combat.tactic}}/> Tactic</label>
+            <label><input type="checkbox" name="system.combat.twitch" {{checked system.combat.twitch}}/> Twitch</label>
+            <label><input type="checkbox" name="system.combat.freebie" {{checked system.combat.freebie}}/> Freebie</label>
+            <button type="button" class="combat-reset">Reset Round</button>
+          </div>
+          <h2>Equipped Weapons</h2>
+          <ol class="items-list compact">
+            {{#each weapons as |item|}}
+              <li class="item" data-item-id="{{item.id}}"><a class="item-edit">{{item.name}}</a><span>{{item.system.damage}}</span><span>{{item.system.charges.value}}/{{item.system.charges.max}}</span><button type="button" class="item-roll">Attack</button></li>
+            {{/each}}
+          </ol>
+          <h2>Armour</h2>
+          <ol class="items-list compact">
+            {{#each armor as |item|}}
+              <li class="item" data-item-id="{{item.id}}"><a class="item-edit">{{item.name}}</a><span>{{item.system.location}}</span><span>AR {{item.system.armor}}</span></li>
+            {{/each}}
+          </ol>
+        </section>
+      </div>
+    </div>
+
+    <div class="tab" data-group="primary" data-tab="gear">
+      <section class="rm-panel">
+        <h2>Gear <button type="button" class="item-create" data-type="gear">+ Gear</button><button type="button" class="item-create" data-type="weapon">+ Weapon</button><button type="button" class="item-create" data-type="armor">+ Armor</button><button type="button" class="item-create" data-type="vehicle">+ Vehicle</button><button type="button" class="refresh-all">Refresh All</button></h2>
+        <ol class="items-list gear-list">
+          {{#each gear as |item|}}
+            <li class="item" data-item-id="{{item.id}}">
+              <img src="{{item.img}}" title="{{item.name}}"/>
+              <div class="item-main"><a class="item-edit glow">{{item.name}}</a><small>{{item.type}} • {{item.system.qualities}}</small><small>{{item.system.effect}}</small></div>
+              <span>Upkeep {{item.system.upkeep}}</span>
+              {{#if item.system.charges}}<span>Charges {{item.system.charges.value}}/{{item.system.charges.max}}</span><button type="button" class="charge-use">Use</button><button type="button" class="item-roll">Roll</button>{{/if}}
+              <button type="button" class="item-delete">×</button>
+            </li>
+          {{/each}}
+        </ol>
+      </section>
+    </div>
+
+    <div class="tab" data-group="primary" data-tab="bank">
+      <section class="rm-panel rm-bank">
+        <h2>Upkeep</h2>
+        <div class="rm-upkeep-grid">
+          <label>Sustenance <input type="number" name="system.upkeep.sustenance" value="{{system.upkeep.sustenance}}"/></label>
+          <label>Survival <input type="number" name="system.upkeep.survival" value="{{system.upkeep.survival}}"/></label>
+          <label>Rent <input type="number" name="system.upkeep.rent" value="{{system.upkeep.rent}}"/></label>
+          <label>Dependents <input type="number" name="system.upkeep.dependents" value="{{system.upkeep.dependents}}"/></label>
+          <label>Maintenance <input type="number" name="system.upkeep.maintenance" value="{{system.upkeep.maintenance}}"/></label>
+          <label>Equipment <input type="number" name="system.upkeep.equipment" value="{{system.upkeep.equipment}}"/></label>
+          <label>Purchase <input type="number" name="system.upkeep.purchase" value="{{system.upkeep.purchase}}"/></label>
+          <label>Pro. Dev. <input type="number" name="system.upkeep.professionalDevelopment" value="{{system.upkeep.professionalDevelopment}}"/></label>
+          <label>Incidentals <input type="number" name="system.upkeep.incidentals" value="{{system.upkeep.incidentals}}"/></label>
+          <label>Health <input type="number" name="system.upkeep.health" value="{{system.upkeep.health}}"/></label>
+          <label>Humanity <input type="number" name="system.upkeep.humanity" value="{{system.upkeep.humanity}}"/></label>
+          <label>Favors <input type="number" name="system.upkeep.favors" value="{{system.upkeep.favors}}"/></label>
+          <label>Break Point <input type="number" name="system.breakPoint" value="{{system.breakPoint}}"/></label>
+          <label>Projected Earnings <input type="number" name="system.projectedEarnings" value="{{system.projectedEarnings}}"/></label>
+          <label>Bounty Bank <input type="number" name="system.bounty" value="{{system.bounty}}"/></label>
+        </div>
+        <h2>Retirement Milestones</h2>
+        <textarea name="system.retirement.milestones">{{system.retirement.milestones}}</textarea>
+        <label>Savings <input type="number" name="system.retirement.savings" value="{{system.retirement.savings}}"/></label>
+      </section>
+    </div>
+
+    <div class="tab" data-group="primary" data-tab="people">
+      <section class="rm-panel">
+        <h2>People <button type="button" class="item-create" data-type="dependent">+ Dependent</button><button type="button" class="item-create" data-type="reference">+ Reference</button></h2>
+        <ol class="items-list people-list">
+          {{#each people as |item|}}
+            <li class="item" data-item-id="{{item.id}}">
+              <img src="{{item.img}}" title="{{item.name}}"/>
+              <div class="item-main"><a class="item-edit glow">{{item.name}}</a><small>{{item.type}} • {{item.system.relationship}}{{item.system.field}}</small><small>{{item.system.description}}</small></div>
+              <span>{{item.system.status}}</span>
+              <button type="button" class="item-delete">×</button>
+            </li>
+          {{/each}}
+        </ol>
+      </section>
+    </div>
+
+    <div class="tab" data-group="primary" data-tab="notes">
+      <section class="rm-panel"><h2>Notes</h2><textarea class="big-notes" name="system.notes">{{system.notes}}</textarea></section>
+    </div>
+  </section>
+</form>

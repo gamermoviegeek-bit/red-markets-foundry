@@ -1,0 +1,8 @@
+<form class="{{cssClass}} rm-sheet" autocomplete="off">
+  <header class="rm-header compact"><input name="name" type="text" value="{{actor.name}}" class="rm-name" placeholder="Market Force"/></header>
+  <section class="rm-card">
+    <div class="rm-row"><label>Threat <input type="number" name="system.threat" value="{{system.threat}}"/></label><label>Health <input type="number" name="system.resources.health.value" value="{{system.resources.health.value}}"/> / <input type="number" name="system.resources.health.max" value="{{system.resources.health.max}}"/></label><label>Damage <input name="system.damage" value="{{system.damage}}"/></label></div>
+    <label>Special <textarea name="system.special">{{system.special}}</textarea></label>
+    <label>Description <textarea name="system.description">{{system.description}}</textarea></label>
+  </section>
+</form>

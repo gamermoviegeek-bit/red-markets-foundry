@@ -1,0 +1,15 @@
+.rm-dsn-welcome h2 {
+  color: #b70015;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.rm-dsn-welcome strong {
+  color: #172018;
+}
+
+.rm-dsn-welcome .rm-dsn-note {
+  border-left: 3px solid #b70015;
+  padding-left: 0.75rem;
+  font-style: italic;
+}
